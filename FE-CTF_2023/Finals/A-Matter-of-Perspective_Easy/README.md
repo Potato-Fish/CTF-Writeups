@@ -4,7 +4,7 @@
 We are given a button that leads to a minimal web page that presents some data. Inspecting this data shows that the only thing that the page does is load a bitmap image. The bitmap image data changes every time the page is loaded.
 An example of one of the bitmap images can be viewed below:
 
-![bitmap data](bitmap_data_easy.bmp)
+![bitmap data](./bitmap_data_easy.bmp)
 
 
 ## Challenge
@@ -16,6 +16,7 @@ In order to represent the data in 3D, 3 bytes of the data are taken at a time, a
 
 Doing just this in not enough however, as it can be very difficult to view the 3D graph points in a 2D space, if the density of points are too high. This is ilustrated in the graph below (generated with pyplot):
 
+![scatter plot](./scatter_plot_graph.png)
 
 In order to get "a better perspective" of the data, a 3D heatmap graph of the data can be generated instead.
 To do this, a python script was made that uses ‘numpy’, ‘scipy’ and ‘mayavi’, which is dependent on ‘PyQt5’. Mayavi is a very nice python library for creating interactive visualizations of 3D data, and can be installed with:
@@ -73,7 +74,7 @@ if __name__=='__main__':
 
 The code generates a graph from the “bitmap” data as follows (this example is a screenshot, and therefore not interactive):
 
-
+![3D heatmap](./graph_snapshot.png)
 
 ***Try it for yourself! It is very satisfying***🤓
 
