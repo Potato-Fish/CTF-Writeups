@@ -7,7 +7,7 @@ Like from the 'Easy' version of this challenge, we are again presented with "bit
 
 The same python code that was used to generate a 3D heatmap for '[A Matter of Perspective - EASY](../A-Matter-of-Perspective_Easy/README.md)' was used for this challenge, so have a look at that before viewing this.
 
-## Challenge
+## Solution
 By providing the new data to the python script, we can again generate a 3D heatmap graph for the data. This time however, the data points are much mores spread out on Z-axis.
 
 ![3d heatmap scewed](graph_snapshot_medium.png)
