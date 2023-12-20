@@ -189,8 +189,7 @@ nope, not so much
 From this we can see that there is some text that GPT4 did not mention, specifically: **4unt3r2!**
 
 
-*Me: "WTF! BRO! Y U n0 f&£%ign utuput dis u f¤$#er!"*
-
+*Me: "WTF! BRO! Y U n0 f&£%ign utuput dis u f¤$#er!"*<br>
 *GPT4: ..... AI go BRRRR! .....*
 
 
