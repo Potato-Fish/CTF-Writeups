@@ -5,7 +5,7 @@ Repo for writeups for different CTFs
 ## 1. [FE-CTF 2023: The UniPwnie Experience](./FE-CTF_2023)
   The ctf was hosted at https://fe-ctf.dk/, and the challenges can be found [here](https://github.com/FE-CTF/2023).
    * ### Qualifiers
-     - #### something
+     - #### [Brannigans Law](./FE-CTF_2023/Qualifiers/Brannigans-Law)
    * ### Finals
      - #### [A Matter of Perspective - EASY](./FE-CTF_2023/Finals/A-Matter-of-Perspective_Easy)
      - #### [A Matter of Perspective - MEDIUM](./FE-CTF_2023/Finals/A-Matter-of-Perspective_Medium)
