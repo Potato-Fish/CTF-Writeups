@@ -26,18 +26,18 @@
 *Brannigan out!*
 
 ## Solution
-As is somewhat pointed out in the rambling description, we want to send a zip file, that when unziped will provide one result for the "seyvaan-siip people", and another for the "ohns-ehp people". But how is this possible???
+As is somewhat pointed out in the rambling description, we want to send a zip file, that when unzipped will provide one result for the "seyvaan-siip people", and another for the "ohns-ehp people". But how is this possible???
 
-To start of with, we created a python script that connects to the server at 'brannigans-law.hack.fe-ctf.dk:1337'. A lot of time was used fiddeling with recieving data from the server, and  how to send files to the remote host. Luckily, we get a lot of feedback when we connect to the host.
+To start of with, we created a python script that connects to the server at 'brannigans-law.hack.fe-ctf.dk:1337'. A lot of time was used fiddling with receiving data from the server, and  how to send files to the remote host. Luckily, we get a lot of feedback when we connect to the host.
 
-> Unfortunatley I did not capture any screenshots of my terminal for the different outputs
+> Unfortunately I did not capture any screenshots of my terminal for the different outputs
 
 First we are told: "*The seyvaan-siipians expect a file called* ", and then a random string of text, as well as what the file should contain.<br>
 We are also told: "*But the proud ohns-ehp tribe demand a file called* ", also with a random string, and the expected file contents.
 
 We are then asked to provide the length of a zip file, as well as the zip file itself.
 
-But how can we provide a zip file with two different contents when extcted?
+But how can we provide a zip file with two different contents when extracted?
 
 Well, through the logs we see that the “seyvaan-siip” people will first check the file, and extract it using “7z” which takes indexes from the start of the file.<br>
 The “ohns-ehp” people will then check the file, and extract its content using “unzip” which indexes from the end of the file.
@@ -120,13 +120,13 @@ r.send(data)
 r.interactive()
 ```
 
-This code first creates two files for the “seyvaan-siip” people, that contains the file with the expected information, and the second file is blank so that the young people dont get angry. This file is then zipped.<br>
-Now we generate only one file for the “ohns-ehp” people, which contains all the needed information. Through trial and error, the server aparantly wants an error to be thrown when extracting the file for “seyvaan-siip” people here. This file is also zipped.<br>
+This code first creates two files for the “seyvaan-siip” people, that contains the file with the expected information, and the second file is blank so that the young people don't get angry. This file is then zipped.<br>
+Now we generate only one file for the “ohns-ehp” people, which contains all the needed information. Through trial and error, the server apparently wants an error to be thrown when extracting the file for “seyvaan-siip” people here. This file is also zipped.<br>
 We now combine these two files using 'cat', and fix the headers using the 'zip -F' command.
 
 We can then send the files length and files content to the server.
 
-The server uses “7z” to extract the first two files made for “seyvaan-siip” people, indexing from the start of the file, and makes sure they contain the expected data and names. Then it will use “unzip” to extract the one file for “ohns-ehp”, indexing from the end of the file, check that their file has the expected content and name, and fail on the second file (seyvaan-siip file), which it is ment to in this case.
+The server uses “7z” to extract the first two files made for “seyvaan-siip” people, indexing from the start of the file, and makes sure they contain the expected data and names. Then it will use “unzip” to extract the one file for “ohns-ehp”, indexing from the end of the file, check that their file has the expected content and name, and fail on the second file (seyvaan-siip file), which it is meant to in this case.
 
 When these tests are done, and all are passed, we get the flag:
 
