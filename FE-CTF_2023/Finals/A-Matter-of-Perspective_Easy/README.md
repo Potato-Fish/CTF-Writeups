@@ -7,7 +7,7 @@ An example of one of the bitmap images can be viewed below:
 ![bitmap data](bitmap_data_easy.bmp)
 
 
-### Challenge
+## Challenge
 There was not much to go on, as there was not much description to the challenge, and as the image kept changing, it meant that a certain pattern would be difficult to find. A lot of time was wasted in trying to find recurring pixel values at same locations for different bitmap images, but this lead nowhere.
 
 Another approach, which is hinted in the name, is to try and represent the data in a different way, or "from a different perspective". So... instead of trying to view an image from a 2D perspective, maybe it would make more sence trying to view it from a 3D perspective.
