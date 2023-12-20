@@ -26,7 +26,8 @@
 *Brannigan out!*
 
 ## Solution
-As is somewhat pointed out in the rambling description, we want to send a zip file, that when unziped will provide one result for the "seyvaan-siip people", and another for the "ohns-ehp people". Luckily, we gat a lot of feedback when we netcat to the remote host.
+As is somewhat pointed out in the rambling description, we want to send a zip file, that when unziped will provide one result for the "seyvaan-siip people", and another for the "ohns-ehp people". But how is this possible???
 
-To start of with, lot of time was used fiddeling with how to send files to the remote host, when we connect to it with netcat, but once 
+To start of with, we created a python script that connects to the server at 'brannigans-law.hack.fe-ctf.dk:1337'. A lot of time was used fiddeling with recieving data from the server, and  how to send files to the remote host. Luckily, we get a lot of feedback when we connect to the host.
 
+First we are told: "The seyvaan-siipians expect a file called "
