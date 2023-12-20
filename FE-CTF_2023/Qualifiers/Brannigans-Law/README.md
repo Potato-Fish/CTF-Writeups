@@ -124,7 +124,7 @@ This code first creates two files for the “seyvaan-siip” people, that contai
 Now we generate only one file for the “ohns-ehp” people, which contains all the needed information. Through trial and error, the server aparantly wants an error to be thrown when extracting the file for “seyvaan-siip” people here. This file is also zipped.<br>
 We now combine these two files using 'cat', and fix the headers using the 'zip -F' command.
 
-We can then send the files length and files content to the server
+We can then send the files length and files content to the server.
 
 The server uses “7z” to extract the first two files made for “seyvaan-siip” people, indexing from the start of the file, and makes sure they contain the expected data and names. Then it will use “unzip” to extract the one file for “ohns-ehp”, indexing from the end of the file, check that their file has the expected content and name, and fail on the second file (seyvaan-siip file), which it is ment to in this case.
 
