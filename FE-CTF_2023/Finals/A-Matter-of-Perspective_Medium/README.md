@@ -12,6 +12,6 @@ By providing the new data to the python script, we can again generate a 3D heatm
 
 ![3d heatmap scewed](graph_snapshot_medium.png)
 
-This is however no issue, as we can align the data to only the X- and Y-axis, so that we can still get a clear image of the flag: flag{???}
+This is however no issue, as we can align the data to only the X- and Y-axis, so that we can still get a clear image of the flag.
 
 ![3d heatmap scewed](graph_snapshot_medium_aligned.png)
