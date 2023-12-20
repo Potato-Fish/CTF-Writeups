@@ -204,4 +204,4 @@ flag{r34d-b3twe3n-th3-l1es}
 
 And there we go, we get the flag.
 
-
+![dcode.fr interpreting whitespace](./dcode_solving.png)
