@@ -78,3 +78,5 @@ The code generates a graph from the “bitmap” data as follows (this example i
 
 ***Try it for yourself! It is very satisfying***🤓
 
+> This python script is also used to solve '[A Matter of Perspective - Medium](../A-Matter-of-Perspective_Medium/README.md)
+
