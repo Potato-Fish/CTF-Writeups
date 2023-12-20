@@ -30,14 +30,27 @@ As is somewhat pointed out in the rambling description, we want to send a zip fi
 
 To start of with, we created a python script that connects to the server at 'brannigans-law.hack.fe-ctf.dk:1337'. A lot of time was used fiddeling with recieving data from the server, and  how to send files to the remote host. Luckily, we get a lot of feedback when we connect to the host.
 
+> Unfortunatley I did not capture any screenshots of my terminal for the different outputs
+
 First we are told: "*The seyvaan-siipians expect a file called* ", and then a random string of text, as well as what the file should contain.<br>
 We are also told: "*But the proud ohns-ehp tribe demand a file called* ", also with a random string, and the expected file contents.
 
 We are then asked to provide the length of a zip file, as well as the zip file itself.
 
+But how can we provide a zip file with two different contents when extcted?
 
+Well, through the logs we see that the “seyvaan-siip” people will first check the file, and extract it using “7z” which takes indexes from the start of the file.<br>
+The “ohns-ehp” people will then check the file, and extract its content using “unzip” which indexes from the end of the file.
 
+Knowing this, we can combine two zip files with the 'cat' command.
+```Shell
+cat file1.zip file2.zip > combined.zip
+```
 
+It is almost as easy as that, but not quite as "unzip" will compain (give a warning) about the headers not matching the expected file size.<br>
+Luckily, we can use the "zip" tool with the "-F" flag in order to fix this file. What "zip -F" will do is attempt to fix a zip file, which in this case will correct the header data for the trailing zip archive, so that it matches the length of the file, even though it does not extract this much.
+
+Whith all of this in mind, we can create the following python script:
 ```Python
 from pwn import *
 import subprocess
@@ -107,9 +120,13 @@ r.send(data)
 r.interactive()
 ```
 
+This code first creates two files for the “seyvaan-siip” people, that contains the file with the expected information, and the second file is blank so that the young people dont get angry. This file is then zipped.<br>
+Now we generate only one file for the “ohns-ehp” people, which contains all the needed information. Through trial and error, the server aparantly wants an error to be thrown when extracting the file for “seyvaan-siip” people here. This file is also zipped.<br>
+We now combine these two files using 'cat', and fix the headers using the 'zip -F' command.
 
+We can then send the files length and files content to the server
 
-The server uses “7z” to extract the first two files made for “seyvaan-siip” people, and make sure they contain the expected data and names. Then it will use “unzip” to extract the one file for “ohns-ehp”, and fail on the first file (wrong file), which it is ment to in this case, and again check these for the expected data and names.
+The server uses “7z” to extract the first two files made for “seyvaan-siip” people, indexing from the start of the file, and makes sure they contain the expected data and names. Then it will use “unzip” to extract the one file for “ohns-ehp”, indexing from the end of the file, check that their file has the expected content and name, and fail on the second file (seyvaan-siip file), which it is ment to in this case.
 
 When these tests are done, and all are passed, we get the flag:
 
